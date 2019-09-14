@@ -1,0 +1,29 @@
+.image {
+    width: 96px;
+    height: 96px;
+}
+
+.contentHeader {
+    display: flow-root;
+    margin-bottom: 15px;
+}
+
+.contentBody {
+    display: flex;
+}
+
+.contentFooter {
+    display: flow-root;
+}
+
+.floatLeft {
+    float: left;
+}
+
+.floatRight {
+    float: right;
+}
+
+.removeBorder {
+    border: none;
+}

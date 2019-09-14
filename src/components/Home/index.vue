@@ -1,18 +1,27 @@
 <template>
-  <div class="hello">
-    <p>I am the home body</p>
-    <p>{{ sayHi }}</p>
+  <div class="columns">
+    <div class="column is-one-third-widescreen is-one-third-desktop is-6-tablet is-8-mobile">
+      <Posts />
+    </div>
+    <div class="column"></div>
   </div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
+import Posts from '../Posts';
+
 export default {
   name: 'Home',
-  data () {
-    return {
-      sayHi: 'Hi world'
-    }
+  components: {
+    Posts
   },
+  mounted () {
+    this.fectchPosts()
+  },
+  methods: {
+    ...mapActions([ 'fectchPosts' ]),
+  }
 }
 </script>
 

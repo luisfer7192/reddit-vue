@@ -1,9 +1,12 @@
 <template>
-  <div class="list is-hoverable">
-    <p>Reddit Posts</p>
-    <div class="list-item" v-for="(data, index) in posts" :key="index">
-      <Post :data="data" />
-    </div>
+  <div class="list is-hoverable container">
+    <p class="listTitle">Reddit Posts</p>
+    <div class="separator" />
+    <transition-group name="list">
+      <div class="list-item postsContainer" v-for="data in posts" :key="data.id">
+        <Post :data="data" />
+      </div>
+    </transition-group>
   </div>
 </template>
 
@@ -12,7 +15,7 @@ import { mapGetters } from 'vuex';
 import Post from './Post';
 
 export default {
-  name: 'Menu',
+  name: 'Posts',
   components: {
     Post
   },

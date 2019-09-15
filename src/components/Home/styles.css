@@ -1,0 +1,8 @@
+.menu-enter-active, .menu-leave-active {
+    transition: transform 0.1s ease;
+}
+
+.menu-enter, .menu-leave-to {
+    transform: translateX(-100%);
+    transition: all 150ms ease-in 0s
+}

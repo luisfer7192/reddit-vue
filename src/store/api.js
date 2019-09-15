@@ -1,4 +1,4 @@
-import axios from 'axios' // install axios and config it when you want to use the endpoints
+import axios from 'axios'
 
 const limit = 10
 const count = 10

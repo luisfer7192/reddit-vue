@@ -5,7 +5,8 @@ import { getPosts } from '../api';
 const state = {
   posts: [],
   after: null,
-  setIsLoading: false
+  setIsLoading: false,
+  showMenu: false
 }
 
 const mutations = {
@@ -18,6 +19,13 @@ const mutations = {
   },
   setIsLoading (state, status) {
     Vue.set(state, 'isLoading', status);
+  },
+  dismissPost (state, id) {
+    const record = state.posts.find(post => post.id === id)
+    state.posts.splice(state.posts.indexOf(record), 1)
+  },
+  updateShowMenu (state, status) {
+    Vue.set(state, 'showMenu', status);
   }
 }
 
@@ -43,6 +51,9 @@ const getters = {
   getPosts (state) {
     return state.posts
   },
+  getShowMenu (state) {
+    return state.showMenu
+  }
 }
 
 export default {

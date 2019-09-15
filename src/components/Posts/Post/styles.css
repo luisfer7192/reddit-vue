@@ -1,6 +1,10 @@
 .image {
-    width: 96px;
-    height: 96px;
+    width: 64px;
+    height: 64px;
+}
+
+.media-content p {
+    font-size: 14px;
 }
 
 .contentHeader {
@@ -10,6 +14,7 @@
 
 .contentBody {
     display: flex;
+    margin-bottom: 15px !important;
 }
 
 .contentFooter {
@@ -26,4 +31,51 @@
 
 .removeBorder {
     border: none;
+}
+
+.card {
+    box-shadow: none;
+    background-color: transparent;
+    position: relative;
+    border-bottom: 1px solid #8e8888;
+    padding-bottom: 10px;
+}
+
+.card-content {
+    padding: 0;
+    margin-right: 15px;
+}
+
+.dismissBtn {
+    border: none;
+    float: left;
+    background-color: transparent;
+    color: #F3F3F3;
+}
+
+.iconRight {
+    -webkit-transform: translate(0,-50%);
+    transform: translate(0,-50%);
+    position: absolute;
+    top: 50%;
+    right: -10px;
+}
+
+.comments {
+    color: #d28c5c;
+    margin-top: 5px;
+}
+
+.unread {
+    width: 12px;
+    height: 12px;
+    float: left;
+    background-color: #0075FF;
+    border-radius: 6px;
+    margin-right: 5px;
+    margin-top: 6px;
+}
+
+p {
+    color: #F3F3F3;
 }

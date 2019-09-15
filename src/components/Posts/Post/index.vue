@@ -2,12 +2,13 @@
   <div class="card">
     <div class="card-content">
       <div class="contentHeader">
+        <div class="unread" />
         <p class="floatLeft">{{data.author}}</p>
         <p class="floatRight">{{getDate}}</p>
       </div>
       <div class="media contentBody">
         <div class="media-left floatLeft">
-          <figure class="image is-96x96">
+          <figure class="image is-64x64">
             <img :src="getImage" alt="post image" class="image">
           </figure>
         </div>
@@ -17,28 +18,33 @@
       </div>
 
       <div class="contentFooter">
-        <b-button icon-left="close-circle" class="floatLeft removeBorder">
+        <b-button icon-left="close-circle" class="dismissBtn" @click="dismiss()">
           Dismiss Post
         </b-button>
-        <p class="floatRight">{{data.num_comments}} comments</p>
+        <p class="floatRight comments">{{data.num_comments}} comments</p>
       </div>
     </div>
+    <b-icon icon="chevron-right" size="is-medium" type="is-white" class="iconRight"></b-icon>
   </div>
 </template>
 
 <script>
 import moment from 'moment';
-import { mapGetters } from 'vuex';
+import { mapMutations } from 'vuex';
 
 export default {
-  name: 'Menu',
+  name: 'Post',
   props: {
     data: Object
   },
+  methods: {
+    ...mapMutations([ 'dismissPost' ]),
+    dismiss () {
+      this.dismissPost(this.data.id)
+    }
+  },
   computed: {
     getDate () {
-      // eslint-disable-next-line
-      console.log(this.data)
       return moment.unix(this.data.created).fromNow();
     },
     getImage () {

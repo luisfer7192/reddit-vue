@@ -1,0 +1,30 @@
+.container {
+    background-color: #020202;
+    padding: 0;
+}
+
+.postsContainer {
+    border: none;
+}
+
+.listTitle {
+    text-align: center;
+    padding: 20px 0;
+    color: white;
+    font-weight: bold;
+}
+
+.separator {
+    border-bottom: 1px solid #8e8888;
+    margin-right: 16px;
+    margin-left: 16px;
+}
+
+.list-enter-active, .list-leave-active {
+    transition: all 1s;
+}
+
+.list-enter, .list-leave-to {
+    opacity: 0;
+    transform: translateX(-40px);
+}

@@ -1,3 +1,12 @@
+.columns {
+    height: 100%;
+}
+
+.menuPost {
+    vertical-align: top;
+	height: 100%;
+}
+
 .menu-enter-active, .menu-leave-active {
     transition: transform 0.1s ease;
 }

@@ -2,7 +2,7 @@
   <div class="card" @click="setCurrentPost(data)">
     <div class="card-content">
       <div class="contentHeader">
-        <div class="unread" />
+        <div class="unread" v-if="data.unread" />
         <p class="floatLeft">{{data.author}}</p>
         <p class="floatRight">{{getDate}}</p>
       </div>
@@ -18,7 +18,7 @@
       </div>
 
       <div class="contentFooter">
-        <b-button icon-left="close-circle" class="dismissBtn" @click="dismiss()">
+        <b-button icon-left="close-circle" class="dismissBtn" @click.stop="dismiss()">
           Dismiss Post
         </b-button>
         <p class="floatRight comments">{{data.num_comments}} comments</p>

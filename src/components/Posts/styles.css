@@ -28,3 +28,13 @@
     opacity: 0;
     transform: translateX(-40px);
 }
+
+.dismissAllBtn {
+    width: 100%;
+}
+
+.listContainer {
+    overflow: auto;
+    vertical-align: top;
+    height: calc(100vh - 100px);
+}

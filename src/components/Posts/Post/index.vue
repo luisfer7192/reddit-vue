@@ -1,5 +1,5 @@
 <template>
-  <div class="card">
+  <div class="card" @click="setCurrentPost(data)">
     <div class="card-content">
       <div class="contentHeader">
         <div class="unread" />
@@ -38,7 +38,7 @@ export default {
     data: Object
   },
   methods: {
-    ...mapMutations([ 'dismissPost' ]),
+    ...mapMutations([ 'dismissPost', 'setCurrentPost' ]),
     dismiss () {
       this.dismissPost(this.data.id)
     }

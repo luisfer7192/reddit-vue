@@ -6,6 +6,7 @@
       </div>
     </transition>
     <div class="column">
+      <MenuIcon />
       <Preview />
     </div>
   </div>
@@ -15,6 +16,7 @@
 import { mapActions, mapGetters, mapMutations } from 'vuex';
 import Posts from '../Posts';
 import Preview from '../Preview';
+import MenuIcon from '../MenuIcon';
 
 export default {
   name: 'Home',
@@ -33,12 +35,13 @@ export default {
   },
   components: {
     Posts,
-    Preview
+    Preview,
+    MenuIcon
   },
   methods: {
     ...mapMutations([ 'updateShowMenu' ]),
     ...mapActions([ 'fectchPosts' ]),
-    getWindowWidth(event) {
+    getWindowWidth() {
       const oldWindowWidth = this.windowWidth
       this.windowWidth = document.documentElement.clientWidth;
       if (this.windowWidth <= 768 && oldWindowWidth > 768) {

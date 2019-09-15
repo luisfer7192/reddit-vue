@@ -4,6 +4,7 @@ import { getPosts } from '../api';
 
 const state = {
   posts: [],
+  currentPost: {},
   after: null,
   setIsLoading: false,
   showMenu: false
@@ -13,6 +14,9 @@ const mutations = {
   setPosts (state, data) {
     const posts = data.map((d) => d.data);
     Vue.set(state, 'posts', [...new Set([...state.posts, ...posts])]);
+  },
+  setCurrentPost (state, currentPost) {
+    Vue.set(state, 'currentPost', currentPost);
   },
   setAfter (state, after) {
     Vue.set(state, 'after', after);
@@ -53,6 +57,9 @@ const getters = {
   },
   getShowMenu (state) {
     return state.showMenu
+  },
+  getCurrentPost (state) {
+    return state.currentPost
   }
 }
 

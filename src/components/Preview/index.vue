@@ -1,30 +1,37 @@
 <template>
-  <div id="burger" :class="{ 'active' : showMenu }" @click.prevent="toggle">
-    <slot>
-      <button type="button" class="burger-button" title="Menu">
-        <span class="hidden">Toggle menu</span>
-        <span class="burger-bar burger-bar--1"></span>
-        <span class="burger-bar burger-bar--2"></span>
-        <span class="burger-bar burger-bar--3"></span>
-      </button>
-    </slot>
+  <div class="container is-widescreen marginTop15" v-show="isNotEmpty">
+    <h1 class="textCenter">{{post.author}}</h1>
+    <img :src="getImageUrl" :alt="post.author" class="image centerItem marginTop15">
+    <p class="marginTop15">{{post.title}}</p>
+    <div v-if="post.is_video" class="videoContent marginTop15">
+      <p class="textCenter">Video</p>
+      <video width="450" controls :src="videoUrl" class="centerItem marginTop15"></video>
+    </div>
   </div>
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
-import Posts from '../Posts';
+import { mapGetters } from 'vuex';
 
 export default {
   name: 'Preview',
-  methods: {
-    ...mapMutations([ 'updateShowMenu' ]),
-    toggle() {
-      this.updateShowMenu(!this.showMenu)
-    }
-  },
   computed: {
-    ...mapGetters({ showMenu: 'getShowMenu' })
+    ...mapGetters({ post: 'getCurrentPost' }),
+    getImageUrl () {
+      if (!this.post.thumbnail) {
+        return 'https://bulma.io/images/placeholders/96x96.png';
+      }
+      return this.post.thumbnail
+    },
+    isNotEmpty () {
+      return Boolean(Object.keys(this.post).length);
+    },
+    videoUrl () {
+      if (!this.post.media && !this.post.media.reddit_video) {
+        return null;
+      }
+      return this.post.media.reddit_video.fallback_url
+    }
   }
 }
 </script>

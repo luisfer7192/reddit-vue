@@ -5,7 +5,7 @@
     <p class="marginTop15">{{post.title}}</p>
     <div v-if="post.is_video" class="videoContent marginTop15">
       <p class="textCenter">Video</p>
-      <video width="450" controls :src="videoUrl" class="centerItem marginTop15"></video>
+      <video width="450" controls :src="videoUrl" class="centerItem marginTop15 video"></video>
     </div>
   </div>
 </template>

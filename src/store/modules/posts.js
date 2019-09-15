@@ -7,7 +7,8 @@ const state = {
   currentPost: {},
   after: null,
   setIsLoading: false,
-  showMenu: false
+  showMenu: false,
+  isLoading: false
 }
 
 const mutations = {
@@ -67,6 +68,9 @@ const getters = {
   },
   getCurrentPost (state) {
     return state.currentPost
+  },
+  getIsLoading (state) {
+    return state.isLoading
   }
 }
 

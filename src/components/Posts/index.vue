@@ -2,7 +2,7 @@
   <div class="list is-hoverable container">
     <p class="listTitle">Reddit Posts</p>
     <div class="separator" />
-    <div class="listContainer">
+    <div class="listContainer" v-infinite-scroll="loadMore" infinite-scroll-disabled="isLoading" infinite-scroll-distance="10">
       <transition-group name="list">
         <div class="list-item postsContainer" v-for="data in posts" :key="data.id">
           <Post :data="data" />
@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { mapGetters, mapMutations } from 'vuex';
+import { mapActions, mapGetters, mapMutations } from 'vuex';
 import Post from './Post';
 
 export default {
@@ -25,13 +25,17 @@ export default {
     Post
   },
   methods: {
+    ...mapActions([ 'fectchPosts' ]),
     ...mapMutations([ 'dismissAllPosts' ]),
     dismissAll () {
       this.dismissAllPosts()
+    },
+    loadMore () {
+      this.fectchPosts()
     }
   },
   computed: {
-    ...mapGetters({ posts: 'getPosts' })
+    ...mapGetters({ posts: 'getPosts', isLoading: 'getIsLoading' })
   }
 }
 </script>

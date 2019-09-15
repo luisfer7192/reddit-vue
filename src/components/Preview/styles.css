@@ -18,3 +18,7 @@
 .marginTop15 {
   margin-top: 15px;
 }
+
+.video {
+  max-height: 500px;
+}
